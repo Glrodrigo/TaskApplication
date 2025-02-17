@@ -78,7 +78,7 @@ export class GeneralMethods{
     }
 
     public url(): string{
-      let url = "https://localhost:44322";
+      let url = "https://taskmanagerapp-huf9c4d6bzcqh4b6.centralus-01.azurewebsites.net";
       return url;
     }
 }
