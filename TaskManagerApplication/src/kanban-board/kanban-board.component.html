@@ -1,0 +1,36 @@
+<app-menu></app-menu>
+
+<div class="kanban-board">
+  <div class="column" *ngFor="let status of statusList">
+    <h3>{{ status.label }}</h3>
+    
+    <div class="card" *ngFor="let task of getTasksByStatus(status.code)">
+      
+      <div class="task-header">
+        <span class="task-date">Criado {{ task.creationDate | date: 'dd/MM/yyyy' }}</span>
+      </div>
+      
+      <div class="task-content">
+        <div class="task-image" >
+          <img src="assets/images/success.png" alt="Imagem da tarefa">
+        </div>
+        
+        <div class="task-info">
+          <h4 class="task-title">{{ task.title }}</h4>
+          <p class="task-description">{{ task.description }}</p>
+        </div>
+      </div>
+
+      <div class="task-actions">
+        <select [(ngModel)]="task.selectedStatus">
+          <option *ngFor="let s of statusList" [value]="s.code">
+            {{ s.label }}
+          </option>
+        </select>
+        
+        <button (click)="updateTaskStatus(task)">Confirmar</button>
+        <button (click)="change(task)">Editar</button>
+      </div>
+    </div>
+  </div>
+</div>

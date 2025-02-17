@@ -1,0 +1,44 @@
+<app-menu></app-menu>
+
+<div class="block-container">
+    <div class="load" *ngIf="isLoading">
+        <app-load></app-load>
+    </div>
+    <div class="block-form-info">
+        <div class="block-form">
+            <div class="select-field">
+                <label for="select">Nome do Status</label>
+                <div class="custom-dropdown">
+                    <div class="selected" (click)="toggleStatusDropdown()">
+                      {{ selectedStatusOption || 'Selecione uma opção' }}
+                    </div>
+                    <ul class="options" *ngIf="showStatusDropdown">
+                      <li *ngFor="let item of statusList" (click)="selectStatusOption(item.name)">
+                        {{ item.name }}
+                      </li>
+                    </ul>
+                  </div>  
+            </div>
+            <div class="form-group">
+                <label for="title">Titulo:</label>
+                <input type="text" id="title" name="title" [(ngModel)]="taskResponse.title">
+            </div>
+            <div class="form-group">
+                <label for="description">Descrição:</label>
+                <input type="text" id="description" name="description" [(ngModel)]="taskResponse.description">
+            </div>  
+            <div class="form-group">
+                <label for="date">Data de Conclusão:</label>
+                <mat-form-field appearance="outline">
+                    <input matInput [matDatepicker]="picker" id="date" name="date" [(ngModel)]="taskDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="buttons">
+                <button mat-raised-button (click)="changeEvent(taskResponse)">SALVAR</button>
+                <button mat-raised-button class="delete-button" (click)="deleteEvent(taskResponse)">APAGAR</button>
+            </div>
+        </div>
+    </div>
+</div>
