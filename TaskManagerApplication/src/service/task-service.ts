@@ -36,6 +36,13 @@ export class TaskService {
         );
     }
 
+    getByStatus(statusId: Number): Observable<Array<TaskResponse>> {
+        var url = this.url + `/v1/Task/Filter?pageNumber=${1}&status=${statusId}`
+        return this._httpClient.get<Array<TaskResponse>>(url).pipe(
+            timeout(this.timeoutValue)
+        );
+    }
+
     postTask(task: Task): Observable<boolean> {
         let route = this.url + `/v1/Task/Create`;
         return this._httpClient.post<boolean>(route, task).pipe(

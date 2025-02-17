@@ -50,7 +50,7 @@ export class KanbanBoardComponent {
   ];
 
   getTasksByStatus(status: Number) {
-    return this.taskList.filter(task2 => task2.status === status);
+    return this.taskList.filter(task => task.status === status);
   }
 
   async updateTaskStatus(task: TaskResponse) {
@@ -95,7 +95,6 @@ export class KanbanBoardComponent {
       }
     )
   }
-
 
   async changeEvent(task: TaskResponse): Promise<void>{
 
