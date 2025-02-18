@@ -28,3 +28,9 @@ Após instalar as dependências, você pode iniciar o servidor de desenvolviment
 `ng serve` ou `npm start` na raiz do projeto Angular
 
 O servidor estará rodando na URL `http://localhost:4200` para realizar os devidos testes.
+
+
+## Aviso
+Se estiver com alguma divergência para rodar a aplicação em Angular, utilize o link indicado.
+
+### Link: [https://task-application-f5bqagege2e4bgef.centralus-01.azurewebsites.net/].
